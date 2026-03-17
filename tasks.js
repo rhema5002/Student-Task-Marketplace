@@ -177,6 +177,10 @@ function setupCreateTaskForm(user) {
       showError('create-task-error', `❌ ${error.message || 'Failed to create task'}`);
     }
   });
+      // WhatsApp link
+    const whatsappNumber = task.whatsapp.replace(/[^0-9]/g, '');
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi%20${posterUser.name}%2C%20I'm%20interested%20in%20the%20task%3A%20${task.title}`;
+    document.getElementById('modal-whatsapp-link').href = whatsappLink;
 }
 
 /**
