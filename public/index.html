@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add this line -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>📋</text></svg>">
+  <title>Student Task Marketplace - Login</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <main class="auth-container">
+    <div class="auth-card">
+      <h1>🎓 Student Task Marketplace</h1>
+      <p class="subtitle">Earn rewards by completing tasks</p>
+
+      <!-- Login Section -->
+      <div id="login-section">
+        <h2>Login</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p class="toggle-text">Don't have an account? <a href="#" onclick="toggleAuth()">Register</a></p>
+        <div id="login-error" class="error-message"></div>
+      </div>
+
+      <!-- Register Section -->
+      <div id="register-section" style="display:none;">
+        <h2>Create Account</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input type="email" id="register-email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" placeholder="••••••••" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password-confirm">Confirm Password</label>
+            <input type="password" id="register-password-confirm" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <p class="toggle-text">Already have an account? <a href="#" onclick="toggleAuth()">Login</a></p>
+        <div id="register-error" class="error-message"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Student Task Marketplace</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>📋</text></svg>">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">📊 Dashboard</h1>
+      <div class="nav-links">
+        <button id="nav-leaderboard" class="btn btn-secondary">Leaderboard</button>
+        <button id="nav-admin" class="btn btn-secondary" style="display:none;">Admin</button>
+        <button id="nav-logout" class="btn btn-danger">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- User Info Card -->
+    <div class="card info-card">
+      <h2>👤 Profile</h2>
+      <p id="user-info">Loading...</p>
+      <p id="verification-status">Verification: <strong id="verification-badge">Pending</strong></p>
+      <p id="daily-count">Tasks Posted Today: <strong id="task-count">0/5</strong></p>
+    </div>
+
+    <!-- Verification Section -->
+    <div id="verification-card" class="card" style="display:none;">
+      <h2>✅ Account Verification</h2>
+      <p>Complete verification to unlock full features</p>
+      <form id="verification-form">
+        <div class="form-group">
+          <label for="id-upload">Upload ID (Photo)</label>
+          <input type="file" id="id-upload" accept="image/*" required>
+          <small>JPG, PNG (max 5MB)</small>
+        </div>
+        <div class="form-group">
+          <label for="selfie-upload">Upload Selfie</label>
+          <input type="file" id="selfie-upload" accept="image/*" required>
+          <small>JPG, PNG (max 5MB)</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Verification</button>
+      </form>
+      <div id="verification-error" class="error-message"></div>
+    </div>
+
+    <!-- Create Task Section -->
+    <div class="card">
+      <h2>➕ Create New Task</h2>
+      <form id="create-task-form">
+        <div class="form-group">
+          <label for="task-title">Task Title</label>
+          <input type="text" id="task-title" placeholder="E.g., Math Homework Help" required>
+        </div>
+        <div class="form-group">
+          <label for="task-description">Description</label>
+          <textarea id="task-description" placeholder="Describe what needs to be done..." rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="task-reward">Reward Points</label>
+          <input type="number" id="task-reward" placeholder="10" min="1" max="100" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Task</button>
+      </form>
+      <div id="create-task-error" class="error-message"></div>
+    </div>
+
+    <!-- Available Tasks -->
+    <div class="card">
+      <h2>📋 Available Tasks</h2>
+      <div id="available-tasks" class="tasks-grid">
+        <p class="loading">Loading tasks...</p>
+      </div>
+    </div>
+
+    <!-- My Accepted Tasks -->
+    <div class="card">
+      <h2>✨ My Accepted Tasks</h2>
+      <div id="my-tasks" class="tasks-grid">
+        <p class="loading">Loading...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/utils.js"></script>
+  <!-- <script src="scripts/auth.js"></script> -->
+  <script src="scripts/verification.js"></script>
+  <script src="scripts/tasks.js"></script>
+</body>
+</html>

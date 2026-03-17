@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>📋</text></svg>">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">🔐 Admin Dashboard</h1>
+      <div class="nav-links">
+        <button id="nav-back" class="btn btn-secondary">Back to Dashboard</button>
+        <button id="nav-logout" class="btn btn-danger">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- User Management -->
+    <div class="card">
+      <h2>👥 User Management</h2>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('users-pending')">Pending Verification</button>
+        <button class="tab-btn" onclick="switchTab('users-verified')">Verified Users</button>
+        <button class="tab-btn" onclick="switchTab('users-all')">All Users</button>
+      </div>
+      <div id="users-pending" class="tab-content">
+        <div id="users-pending-list" class="users-grid"></div>
+      </div>
+      <div id="users-verified" class="tab-content" style="display:none;">
+        <div id="users-verified-list" class="users-grid"></div>
+      </div>
+      <div id="users-all" class="tab-content" style="display:none;">
+        <div id="users-all-list" class="users-grid"></div>
+      </div>
+    </div>
+
+    <!-- Task Management -->
+    <div class="card">
+      <h2>📋 Task Management</h2>
+      <div id="tasks-admin-list" class="tasks-grid"></div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="card">
+      <h2>📊 Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 id="stat-total-users">0</h3>
+          <p>Total Users</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="stat-verified-users">0</h3>
+          <p>Verified Users</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="stat-total-tasks">0</h3>
+          <p>Total Tasks</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="stat-completed-tasks">0</h3>
+          <p>Completed Tasks</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/admin.js"></script>
+</body>
+</html>
